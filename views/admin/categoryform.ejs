@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+</head>
+<body>
+  <%- include("header")%>
+    <div id="page-wrapper">
+      <div id="page-inner">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Category addition form </h2>
+           </div>
+           </div>
+        <!-- /. ROW  -->
+        <!-- <hr /> -->
+         <section class="vh-100 gradient-custom">
+          <div class="container py-5 h-100">
+            <div class="row justify-content-center align-items-center h-100">
+              <div class="col-9 col-lg-9 col-xl-6">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                  <div class="card-body p-6 p-md-6">
+                    <h3 class="mb-4 pb-3 pb-md-0 mb-md-5"></h3>
+                   
+                 <div class="container mt-5">
+  <h2 class="mb-4">Add Category</h2>
+  <form action="/postcatgry" method="post">
+    <div class="form-group">
+      <label for="categoryInput">Category Name</label>
+      <input type="text" class="form-control" name="category" id="categoryInput" placeholder="Enter category name">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+                   
+              <div class="col-9 col-lg-9 col-xl-6">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;"> 
+                  <div class="card-body p-6 p-md-6">
+                    <h3 class="mb-4 pb-3 pb-md-0 mb-md-5"></h3>
+
+                   
+  
+  <form action="/updateCategory" method="post">
+    <div class="form-group">
+      <label for="update">update category</label>
+       <select name="perviousCategory" id="">
+                        <% for(let k of category) {%>
+                          <option value="<%=k._id%>">
+                            <%=k.category%>
+                          </option>
+                          <%}%>
+                      </select>
+                       <input type="text" class="form-control" name="updatedCategory"  placeholder="Enter updated category name">
+    </div>
+    <button type="submit" class="btn btn-primary">update</button>
+  </form>
+  </div>
+  
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+       
+        </div>
+              </div>
+            </div>
+          </div>
+        </section> 
+        
+        
+        
+        <!-- /. ROW  -->
+        
+        
+
+        <div class="row">
+          <div class="col-md-12">
+           <h2>All categories </h2>   
+          </div>
+      </div>              
+       <!-- /. ROW  -->
+        <hr />
+<table border="2" class="table table-striped">
+  <tr>
+      <th>Sr.no</th>
+      <th>Category</th>
+      <th>Delete</th>
+  </tr>
+  <% for(let k of category) {%>
+  <tr>
+    <td><%=category.indexOf(k)+1%></td>
+    <td><%=k.category%></td>
+    <td><a class="btn btn-danger" href="/deletecatrgy/<%=k._id%>">Delete</a></td>
+  </tr>
+  <%}%>
+  
+</table>
+
+
+      </div>
+      <!-- /. PAGE INNER  -->
+
+
+    </div>
+    <!-- /. PAGE WRAPPER  -->
+    </div>
+    <%- include("footer")%>
+</body>
+
+</htm

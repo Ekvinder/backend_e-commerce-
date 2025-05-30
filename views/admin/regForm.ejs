@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> 
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> 
+  
+    
+</head>
+<body>
+  
+   <%- include("header")%> 
+   <div id="page-wrapper" >
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+             <h2>User Registration Form </h2>   
+            </div>
+        </div>              
+         <!-- /. ROW  -->
+          <!-- <hr /> -->
+      <section class="vh-100 gradient-custom">
+      <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+          <div class="col-9 col-lg-9 col-xl-6">
+            <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+              <div class="card-body p-6 p-md-6">
+                <h3 class="mb-4 pb-3 pb-md-0 mb-md-5"></h3>
+                <form action="/postdata" method="post">
+    
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+    
+                      <div data-mdb-input-init class="form-outline">
+                        <label class="form-label" for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="FirstName"   class="form-control form-control-lg" />
+                        
+                      </div>
+    
+                    </div>
+                    <div class="col-md-6 mb-4">
+    
+                      <div data-mdb-input-init class="form-outline">
+                        <label class="form-label" for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="LastName" class="form-control form-control-lg" />
+                        
+                      </div>
+    
+                    </div>
+                  </div>
+    
+                  <div class="row">
+                    <div class="col-md-6 mb-4 d-flex align-items-center">
+    
+                      <div data-mdb-input-init class="form-outline datepicker w-100">
+                        <label for="birthdayDate" class="form-label">Date of Birth</label>
+                        <input type="date" name="dob"  class="form-control form-control-lg"  id="birthdayDate" />
+                        
+                      </div>
+    
+                    </div>
+                    <div class="col-md-6 mb-4">
+    
+                      <h6 class="mb-2 pb-1">Gender: </h6>
+    
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions(f)" id="femaleGender"
+                          value="option1"  />
+                        <label class="form-check-label" for="femaleGender">Female</label>
+                      </div>
+    
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions(m)" id="maleGender"
+                          value="option2" />
+                        <label class="form-check-label" for="maleGender">Male</label>
+                      </div>
+    
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions(O)" id="otherGender"
+                          value="option3" />
+                        <label class="form-check-label" for="otherGender">Other</label>
+                      </div>
+    
+                    </div>
+                  </div>
+    
+                  <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+    
+                      <div data-mdb-input-init class="form-outline">
+                        <label class="form-label" for="emailAddress">Email</label>
+                        <input type="email" id="emailAddress"  name="Email" class="form-control form-control-lg" />
+                        
+                      </div>
+    
+                    </div>
+                    <div class="col-md-6 mb-4 pb-2">
+    
+                      <div data-mdb-input-init class="form-outline">
+                        <label class="form-label" for="phoneNumber">Phone Number</label>
+                        <input type="tel" id="phoneNumber" name="Phoneno"   class="form-control form-control-lg" />
+                        
+                      </div>
+    
+                    </div>
+                    <!-- <div class="col-md-6 mb-4 pb-2">
+    
+                      <div data-mdb-input-init class="form-outline">
+                        <label class="form-label" for="phoneNumber">Password</label>
+                        <input type="tel" id="Password" name="Password"   class="form-control form-control-lg" />
+                        
+                      </div>
+    
+                    </div> -->
+                  </div>
+                  <div class="mt-4 pt-2">
+                    <input data-mdb-ripple-init class="btn btn-primary btn-lg" type="submit" value="submit" />
+                  </div>
+    
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+         <!-- /. ROW  -->           
+</div>
+     <!-- /. PAGE INNER  -->
+     
+</form>
+    </div>
+ <!-- /. PAGE WRAPPER  -->
+</div> 
+     
+</form>
+    <%- include("footer") %>   
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> 
+</head>
+<body> 
+ 
+    <%- include("header")%> 
+       
+   
+    <div id="page-wrapper" >
+      <div id="page-inner">
+          <div class="row">
+              <div class="col-md-12">
+               <h2>add products </h2>   
+              </div>
+          </div>              
+           <!-- /. ROW  -->
+            <hr />
+        
+        
+     <form action="/updatedp/<%=b._id%>" method="post">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Name</label>
+          <input type="text" class="form-control" name="Name" value="<%=b.Name%>" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
+          
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Description</label>
+          <input type="text" class="form-control" name="Description" value="<%=b.Description%>" id="exampleInputPassword1" placeholder="description">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Price</label>
+            <input type="number" class="form-control" name="Price" value="<%=b.Price%>" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="price">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Discount</label>
+            <input type="number" class="form-control" name="Discount" value="<%=b.Discount%>" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="discount">
+            </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Category</label>
+            <select name="category"  id="category" required>
+              <%for(let k of category){ %>
+                 <option value="<%=k._id%>">
+                  <%=k.category%>
+                </option>
+                <% }%>
+            </select>
+            
+          </div>
+
+       
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+</div>
+   <!-- /. ROW  -->           
+  </div>
+  <!-- /. PAGE INNER  -->
+ </div>
+<!-- /. PAGE WRAPPER  -->
+</div>
+    <%- include("footer")%>
+</body>
+</html>

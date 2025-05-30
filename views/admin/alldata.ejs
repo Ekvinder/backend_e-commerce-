@@ -1,0 +1,46 @@
+
+    <%- include("header")%>
+   
+    <div id="page-wrapper" >
+        <div id="page-inner">
+       
+            <div class="row">
+                <div class="col-md-12">
+                 <h2>All user detail</h2>   
+                </div>
+            </div>              
+             <!-- /. ROW  -->
+              <hr />
+    <table border="2" class="table table-striped">
+        <tr>
+            <th>Sr.no</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date of Birth</th>
+            <th>E-mail</th>
+            <th>Phone no</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <%for(let k of d){%>
+        <tr>
+            <td><a href="admin/userdetail/<%=k._id%>" ><%=d.indexOf(k)+1%></a></td>
+            <td><%=k.FirstName%></td>
+            <td><%=k.LastName%></td>
+            <td><%=k.dob%></td>
+            <td><%=k.Email%></td>
+            <td><%=k.Phoneno%></td>
+
+            <td><a href="/updateUser/<%=k._id%>">Edit</a></td>
+            <td><a href="/deleteUser/<%=k._id%>">Delete</a></td>
+        </tr>
+        <%  } %>
+    </table>
+</div>
+<!-- /. PAGE INNER  -->
+</div>
+<!-- /. PAGE WRAPPER  -->
+</div>
+    <%- include("footer")%>
+</body>
+</html>
