@@ -1,0 +1,31 @@
+<%- include("frontEndHeader")%>
+
+    
+      <div id="about" class="shop">
+        <div class="container-fluid">
+           <div class="row">
+            
+              <div class="col-md-5">
+                 <div  class="shop_img">
+                    <figure><img src="/uploads/<%=product.img%>" alt="<%=product.Name%>"/></figure>
+                 </div>
+              </div>
+              <div class="col-md-7 padding_right0">
+                 <div class="max_width">
+                    <div class="titlepage">
+                     <h1><strong class="text-white"><%= product.Name%></strong></h1>
+                     <p><strong>Price :</strong><%= product.Price%></p>
+                     <p><strong>Discount :</strong><%= product.Discount%></p>
+                      <p><strong>Description: </strong><%= product.Description%></p>
+                       <a class="read_more" href="/addToCart/<%=product._id%>">Shop Now</a>
+                    </div>
+                 </div>
+              </div>
+           </div>
+         
+              </div>
+        </div>
+     </div>
+
+
+     <%- include("frontEndFooter")%>

@@ -1,0 +1,142 @@
+<%- include("frontEndHeader")%>
+  <div id="contact" class="contact">
+    <div class="container">
+      <div class="row ">
+        <div class="col-3">
+          <div class="nav flex-column nav-pills gap-1" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <button class="nav-link active" id="v-pills-home-tab" data-toggle="pill" data-target="#v-pills-home"
+              type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</button>
+            <button class="nav-link" id="v-pills-profile-tab" data-toggle="pill" data-target="#v-pills-profile"
+              type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Address</button>
+            <button class="nav-link" id="v-pills-messages-tab" data-toggle="pill" data-target="#v-pills-messages"
+              type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Orders</button>
+            <button class="nav-link" id="v-pills-settings-tab" data-toggle="pill" data-target="#v-pills-settings"
+              type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Edit Profile</button>
+            <button class="nav-link"  type="button" <a href="/userLogout">Logout</a></button>
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+              <h1>Dashboard</h1>
+              <h2>Welcome Back <%=user.Name%></h2>
+            </div>
+
+
+
+            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+              <h1>Address</h1>
+              <h3>Street Address : <%=user.streetAddress%></h3>
+              <h3>State : <%=user.State%></h3>
+              <h3>City: <%=user.City%></h3>
+              <h3>Pincode: <%=user.Pincode%></h3>
+             
+            </div>
+
+
+            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+              <h1>Your Orders</h1>
+              <p>Here is a list of your recent orders :</p>
+              
+              
+                <% for( let k of orders ){%> 
+                  <div class="card-body">
+                    <table class="table tables-striped">
+                      <h4 class="bg-secondary text-white p-3"><%=k.date%></h4>
+                 
+                   <thead>
+                  <tr>
+                    <th scope="col">Order ID</th>
+                    
+                    <th scope="col">Image</th>
+                   <th scope="col">Product</th>
+                    <th scope="col">Status </th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+               <% for( let z of k.Product) { %>
+                  <tr>
+                   <th><%=k.userId%></th>
+                   <th><img src="/uploads/<%=z.product.img%>"style="height:50px; width: 50px; object-fit:scale-down" alt=""></th>
+                  <th><%=z.product.Name%></th>
+                   <th><%=k.status%></th>
+                   
+                  </tr>
+                 
+                 <%}%>
+                </tbody>
+                 </table>
+                  </div> 
+               <%}%>
+            </div>
+
+
+
+            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+              <h1>EditProfile</h1>
+              <form action="/updateProfile/<%=user._id%>" method="post">
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    <label for="validationDefault01">Name</label>
+                    <input type="text" class="form-control" id="validationDefault01" value="<%=user.Name%>" name="Name">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="validationDefault02">Password</label>
+                    <input type="text" class="form-control" id="validationDefault02" value="<%=user.Password%>" name="Password">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    <label for="validationDefault01">Date of Birth</label>
+                    <input type="date" class="form-control" id="validationDefault01" value="<%=user.dob%>" name="dob">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="validationDefault02">Phone no</label>
+                    <input type="text" class="form-control" id="validationDefault02" value="<%=user.Phoneno%>" name="Phoneno">
+                  </div>
+                </div>
+
+                <hr>
+                <h1>Address</h1>
+
+
+                <div class="form-group">
+                  <label for="inputAddress">Street Address</label>
+                  <input type="text" class="form-control" name="streetAddress" id="inputAddress" value="<%=user.streetAddress%>" placeholder="1234 Main St">
+                </div>
+          
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputCity">City</label>
+                    <input type="text" class="form-control" name="City" value="<%=user.City%>" id="inputCity">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputState">State</label>
+                    <select id="inputState" name="State" class="form-control" value="<%=user.State%>" required>
+                      
+                      <option selected disabled>Select your city</option>
+                      <option value="Delhi">Dehli</option>
+                      <option value="Punjab">Punjab</option>
+                      <option value="Haryana">Haryana</option>
+                      <option value="Gujarat">Gujarat</option>
+                      <option value="Chandigarh">Chandigarh</option>
+
+                    </select>
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="inputZip">Pin-code</label>
+                    <input type="text" class="form-control" value="<%=user.Pincode%>" name="Pincode" id="inputZip">
+                  </div>
+                </div>
+              
+                <button type="submit" class="btn btn-primary">Update</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include("frontEndFooter")%>

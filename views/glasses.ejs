@@ -1,0 +1,59 @@
+
+   <%- include("frontEndHeader") %>
+  
+      <!-- Our  Glasses section -->
+      <div class="glasses" >
+        <div class="container"> 
+         <div id="page-wrapper" >
+      <div id="page-inner">
+           <div class="row">
+              <div class="col-md-10 offset-md-1">
+                 <div class="titlepage">
+                    <h2>Our Glasses</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor
+                       e et dolore magna aliqua. Ut enim ad minim veniam, qui
+                    </p>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div class="container-fluid">
+           <div class="row">
+            <% if(typeof products !== "undefined" && products.length > 0) {%>
+               <% products.forEach(product =>{ %>
+              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                 <div class="glasses_box"> 
+
+                  <figure><img style="height: 100px; object-fit: scale-down;" src="/uploads/<%=product.img%>" alt="<%=product.Name%>"/></figure>
+
+                  <p style="height: 30px; overflow: hidden;"><strong>Title:</strong><a href="/shop/<%=product._id%>"><%= product.Name %></a></p>
+                    <p><strong>Price :</strong><%= product.Price%></p>
+                    <p><strong>After Discount :</strong><%= product.Discount%></p>
+                    <!-- <p><strong>Description :</strong><%= product.Description%></p> -->
+                     <a href="/addToCart/<%=product._id%>" class="btn btn-warning">ADD TO CART</a>
+                 </div>
+              </div>
+             <% }); %>
+             <%} else { %>
+               <div class="col-12">
+                  <p class="text-center"> No products found</p>
+               </div>
+              <% } %>
+              </div>
+             
+              
+             
+            
+             <div class="row">
+              <div class="col-md-12 text-center">
+                 <a class="read_more" href="#">Read More</a>
+              </div>
+           </div>
+        </div>
+     </div>
+     <!-- end Our  Glasses section -->
+   </div>
+   </div>
+   
+     <%- include("frontEndFooter") %>
+
